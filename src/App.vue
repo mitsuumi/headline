@@ -1,30 +1,23 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <!-- 路由佔位 -->
+  <router-view />
+ <van-tabbar route>
+  <van-tabbar-item replace to="/" icon="home-o">首頁</van-tabbar-item>
+  <van-tabbar-item replace to="/user" icon="user-o">我的</van-tabbar-item>
+</van-tabbar>
+
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import { ref } from 'vue';
 
-nav {
-  padding: 30px;
-}
+export default {
+  name: 'App',
+  setup() {
+    const active = ref(0);
+    return { active };
+  },
+};
+</script>
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+<style scoped></style>
